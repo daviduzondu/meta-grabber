@@ -8,12 +8,13 @@ app.use(cors())
 
 let html;
 
-let metadata = {img:null, description:null, error:false};
+let metadata = {img:null, description:null, error:false, message:""};
 
 async function getMainPage(target, res){
     metadata.img=null;
     metadata.description=null;
     metadata.error=false;
+    metadata.message="";
     try {
             const response = await fetch(target)
             html = await response.text();
@@ -26,6 +27,7 @@ async function getMainPage(target, res){
             
         } catch (error) {
             metadata.error=true;
+            metadata.message=error;
         }
         res.json(metadata);
 }
