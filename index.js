@@ -31,7 +31,7 @@ async function getMainPage(target, res){
             $('meta').each(function(index){
                 if($(this).attr('property')==="og:image" && !metadata.img) {metadata.img = formatURL($(this)['0'].attribs.content); metadata.error=false; metadata.message+="image_"}
 
-                if($(this).attr('name') === "image" && !metadata.img) {metadata.img = formatURL($(this)['0'].attribs.content); metadata.error=false; metadata.message+="imagde_"}
+                if($(this).attr('name') === "image" && !metadata.img) {metadata.img = formatURL($(this)['0'].attribs.content); metadata.error=false; metadata.message+="image_"}
 
                 if($(this).attr('property')==="og:description" && !metadata.description){ metadata.description = $(this)['0'].attribs.content; metadata.error=false; metadata.message+="description_"}
 
