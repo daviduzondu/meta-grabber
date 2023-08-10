@@ -42,6 +42,7 @@ async function getMainPage(target, res){
             
         } catch (error) {
             metadata.error=true;
+            metadata.test="hello";
             metadata.message=error.message;
         } finally {
             res.json(metadata);
