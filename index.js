@@ -11,10 +11,10 @@ const app = express();
 app.use(cors())
 
 let html;
-let metadata = {img:"", description:"", error:true, message:""};
 
 async function getMainPage(target, res){
     let options = url.parse(target);
+    let metadata = {img:"", description:"", error:true, message:""};
     try {
         const response = await fetch(target)
             html = await response.text();
@@ -42,7 +42,6 @@ async function getMainPage(target, res){
             
         } catch (error) {
             metadata.error=true;
-            metadata.test="hello";
             metadata.message=error.message;
         } finally {
             res.json(metadata);
